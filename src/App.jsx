@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import About from "./components/About"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Tasks from "./components/Tasks"
@@ -79,12 +81,22 @@ const data = res.json()
 )}
 
   return (
+    <Router>
     <>
     <Header onAdd={()=> setShowAddTask(!showAddTask)}/>
-    {showAddTask && <AddTask onAdd = {addTask}/>}
-    <Tasks tasks={tasks} onDelete={deleteTask} onToggle={reminder}/>
+    <Routes>
+    <Route path='/' 
+    element={
+      <>
+      {showAddTask && <AddTask onAdd = {addTask}/>}
+      <Tasks tasks={tasks} onDelete={deleteTask} onToggle={reminder}/>
+      </>
+    }/>
+    <Route path='/about' element={<About/>}/>
+    </Routes>
     <Footer />
     </>
+    </Router>
   )
 }
 
