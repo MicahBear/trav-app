@@ -24,11 +24,18 @@ function App() {
     }
 ])
 
+
+   //delete task
+   const deleteTask = (id)=>{
+    console.log('delete',id)
+}
+//add task
+
   return (
     <>
     <Header />
     <h1>Saying Hello from This file</h1>
-    <Tasks tasks={tasks} />
+    <Tasks tasks={tasks} onDelete={deleteTask} />
     </>
   )
 }
