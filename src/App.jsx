@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask"
 
@@ -82,6 +83,7 @@ const data = res.json()
     <Header onAdd={()=> setShowAddTask(!showAddTask)}/>
     {showAddTask && <AddTask onAdd = {addTask}/>}
     <Tasks tasks={tasks} onDelete={deleteTask} onToggle={reminder}/>
+    <Footer />
     </>
   )
 }
